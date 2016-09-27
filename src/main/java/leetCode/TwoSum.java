@@ -5,6 +5,6 @@ package leetCode;
  */
 public class TwoSum {
     public static void main(String[] args){
-
+        int[] a= {34,56,2,1};
     }
 }
