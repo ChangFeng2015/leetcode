@@ -1,5 +1,7 @@
 package leetCode;
 
+import java.util.Hashtable;
+
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * Created by dave on 16-9-27.
@@ -24,5 +26,21 @@ public class TwoSum {
 
         }
         return result;
+    }
+    public int[] Solution(int[] nums, int target){
+        int[] a = new int[2];
+        Hashtable<Integer, Integer> numbers = new Hashtable<Integer, Integer>();
+        for(int i = 0; i < nums.length; i ++){
+            if(!numbers.contains(nums[i])){
+                numbers.put(nums[i], i);
+            }
+            Integer n = numbers.get(target - nums[i]);
+            if(n != null && n < i){
+                a[0] = n + 1;
+                a[1] = i + 1;
+                return a;
+            }
+        }
+        return a;
     }
 }
