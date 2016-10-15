@@ -1,6 +1,8 @@
 package leetCode;
 
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -42,5 +44,44 @@ public class TwoSum {
             }
         }
         return a;
+    }
+
+    //Brute force
+    private int[] SolutionOne(int[] nums, int target){
+        for(int i = 0; i < nums.length; i ++){
+            for(int j = i + 1; j < nums.length; j ++){
+                if(nums[j] == target - nums[i]){
+                    return new int[]{i, j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution!");
+    }
+    //Two-pass Hash Table
+    private int[] SolutionTwo(int[] nums, int target){
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i = 0; i < nums.length; i ++){
+            map.put(nums[i], i);
+        }
+        for(int i = 0; i < map.size(); i ++){
+            Integer n = map.get(target - nums[i]);
+            if(n != null){
+                return new int[]{i,n};
+            }
+        }
+        throw new IllegalArgumentException("No two sum solution!");
+    }
+
+    //One-pass hashtable
+    private int[] SolutionThree(int[] nums, int target){
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i = 0; i < nums.length; i ++){
+            int n = target - nums[i];
+            if(map.containsKey(n)){
+                return new int[]{map.get(n), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution!");
     }
 }
