@@ -7,14 +7,14 @@ import java.util.Locale;
  */
 public class Demo {
     public static void main(String[] args){
-//        Elvis elvis_1 = Elvis.getInstance();
-//        Elvis elvis_2 = Elvis.getInstance();
-//
-//        if(elvis_1.equals(elvis_2)){
-//            System.out.println("true");
-//        }else {
-//            System.out.println("false");
-//        }
+        Elvis elvis_1 = Elvis.getInstance();
+        Elvis elvis_2 = Elvis.getInstance();
+
+        if(elvis_1.equals(elvis_2)){
+            System.out.println("true");
+        }else {
+            System.out.println("false");
+        }
 
         NutritionFacts nutritionFacts_1 = new NutritionFacts.Builder(240,8).calories(100).sodium(35).carbohydrate(27).build();
         NutritionFacts nutritionFacts_2 = new NutritionFacts.Builder(2,56).calories(29).sodium(34).carbohydrate(67).build();
@@ -24,5 +24,6 @@ public class Demo {
         }else {
             System.out.println("false");
         }
+
     }
 }
