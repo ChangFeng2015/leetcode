@@ -1,6 +1,7 @@
 package leetCode;
 
 /**
+ * 构建器demo:产生的对象都是单独存在的
  * Created by Dave on 2017/4/19.
  */
 public class NutritionFacts {
