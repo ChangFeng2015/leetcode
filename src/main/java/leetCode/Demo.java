@@ -7,17 +7,22 @@ import java.util.Locale;
  */
 public class Demo {
     public static void main(String[] args){
-        String a = "abcd";
-        String b = "abcd";
+//        Elvis elvis_1 = Elvis.getInstance();
+//        Elvis elvis_2 = Elvis.getInstance();
+//
+//        if(elvis_1.equals(elvis_2)){
+//            System.out.println("true");
+//        }else {
+//            System.out.println("false");
+//        }
 
-        StringBuffer sb = new StringBuffer(a);
-        boolean c = a.contentEquals(b);
-        b = a.toUpperCase(Locale.CHINA);
-        boolean d = b.contentEquals(sb);
+        NutritionFacts nutritionFacts_1 = new NutritionFacts.Builder(240,8).calories(100).sodium(35).carbohydrate(27).build();
+        NutritionFacts nutritionFacts_2 = new NutritionFacts.Builder(2,56).calories(29).sodium(34).carbohydrate(67).build();
 
-        char[] e = {'a','b','c','d','e','f'};
-        String f = String.copyValueOf(e,2,3);
-        a.equals(b);
-
+        if (nutritionFacts_1.equals(nutritionFacts_2)){
+            System.out.println("true");
+        }else {
+            System.out.println("false");
+        }
     }
 }
