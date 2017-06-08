@@ -6,7 +6,18 @@ import java.util.Locale;
  * Created by Dave on 2016/11/13.
  */
 public class Demo {
+
     public static void main(String[] args){
+
+        aa:for(int i = 1;i <= 3;i ++){
+           bb:for (int j = 1;j <= 3;j ++ ){
+               if(i == 2 && j == 2){
+                   break bb;
+               }
+               System.out.println(i + " " + j);
+           }
+        }
+
         Elvis elvis_1 = Elvis.getInstance();
         Elvis elvis_2 = Elvis.getInstance();
 
