@@ -8,9 +8,14 @@ package leetCode.factory;
 public class FactoryTest {
 
     public static void consumerService(MachineFactory factory){
-        Vehicle vehicle = (Vehicle)factory.getService();
-        vehicle.driving();
-        vehicle.moves();
+        Machine machine = factory.getService();
+        Vehicle vehicle;
+        if(machine instanceof Vehicle){
+            System.out.println(machine.getClass() + " is a instance of Vehicle!");
+            vehicle = (Vehicle)machine;
+            vehicle.driving();
+        }
+        machine.moves();
     }
 
     public static void main(String[] args){
