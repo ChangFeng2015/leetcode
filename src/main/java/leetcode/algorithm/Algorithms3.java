@@ -1,8 +1,8 @@
-package leetCode;
+package leetcode.algorithm;
 
 /**
  * Given a string, find the length of the longest substring without repeating characters.
- * Created by Dave on 2016/10/21.
+ * @author  by Dave on 2016/10/21.
  */
 public class Algorithms3
 {

@@ -1,8 +1,8 @@
-package leetCode;
+package leetcode.algorithm;
 
 
 /**
- * Created by Dave on 2016/10/15.
+ * @author  by Dave on 2016/10/15.
  */
 public class AddTwoNumbers
 {

@@ -1,4 +1,4 @@
-package leetCode;
+package leetcode;
 
 /**
  * 构建器demo:产生的对象都是单独存在的

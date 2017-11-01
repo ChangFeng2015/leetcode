@@ -1,4 +1,4 @@
-package leetCode;
+package leetcode;
 
 /**
  * 静态工厂:产生的对象都是同一个对象
