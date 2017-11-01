@@ -62,8 +62,8 @@ public class LongestPalindromic {
 
     @Test
     public void longestPalindromicSubstringTest(){
-        String input = "a";
+        String input = "aaaa";
         String result = longestPalindromicSubstring(input);
-        Assert.assertArrayEquals("Success", "a".toCharArray(), result.toCharArray());
+        Assert.assertArrayEquals("Success", "aaa".toCharArray(), result.toCharArray());
     }
 }
