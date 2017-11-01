@@ -1,4 +1,4 @@
-package leetCode.ThreadTest2;
+package leetcode.ThreadTest2;
 
 import java.util.concurrent.locks.ReentrantLock;
 

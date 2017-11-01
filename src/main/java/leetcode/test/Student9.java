@@ -1,4 +1,4 @@
-package leetCode.test;
+package leetcode.test;
 
 /**
  * Created by Dave on 2017/5/4.

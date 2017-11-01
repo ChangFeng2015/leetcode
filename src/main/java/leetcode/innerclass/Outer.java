@@ -1,4 +1,4 @@
-package leetCode.innerclass;
+package leetcode.innerclass;
 
 /**
  * Created by Dave on 2017/9/20.
