@@ -4,7 +4,8 @@ import com.google.common.base.Optional;
 import org.junit.Assert;
 import org.junit.Test;
 
-
+import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -52,8 +53,24 @@ public class OptionalTest {
 
     @Test
     public void test() {
-        MoneyAccount moneyAccount = new MoneyAccount();
-        OptionalTest(null);
+//        MoneyAccount moneyAccount = new MoneyAccount();
+//        OptionalTest(null);
+
+//        List<Integer> list = null;
+//        if (null != list && list.size() > 0) {
+//            for (Integer i : list) {
+//                System.out.println(i);
+//            }
+//        }
+
+        Optional<List<Integer>> listOptional = Optional.fromNullable(Arrays.asList(1, 2, 3));
+        if (listOptional.isPresent()) {
+            for (Integer i : listOptional.get()) {
+                System.out.println(i);
+            }
+        }
+
+
     }
 
     private void OptionalTest(MoneyAccount moneyAccount) {
