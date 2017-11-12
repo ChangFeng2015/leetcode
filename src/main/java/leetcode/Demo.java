@@ -78,4 +78,34 @@ public class Demo {
 //            }
 //        }
     }
+
+    @Test
+    public void test() {
+        Date startDate = new Date(2017, Calendar.JULY, 06);
+        Date endDate = new Date(2017, Calendar.JULY, 07);
+        String remitType = "";
+
+        String whereSql = " where hoyi_transfer.is_sum = 'N' and ( ( hoyi_transfer.tran_date >= '" + startDate
+                + "' and hoyi_transfer.tran_date < '" + endDate + "') " + "or ( hoyi_transfer.tran_date < '"
+                + startDate
+                + "' and DATEDIFF(hoyi_transfer.create_time,hoyi_transfer.tran_date) >= 0 and DATEDIFF( '"
+                + startDate + "' ,hoyi_transfer.create_time) <=30 " + " and hoyi_transfer.create_time < '" + endDate
+                + "') ) and hoyi_transfer.remit_type ='" + remitType
+                + "' and hoyi_transfer.is_need_transfer = 'N' and hoyi_transfer.current_status ='01' and (hoyi_transfer.is_cancel = 'N' OR hoyi_transfer.is_cancel IS NULL ) "
+                + "and hoyi_transfer.tran_date > '2016-11-01'";// 生成凭证是异步的，需全面考虑对以前漏掉的数据作处理
+
+        String sql = "select sum(remit_money), sum(trade_money),shop_id, shop_code, shop_name, in_account, remit_in, 'N' as is_platform, user_code, square_type from "
+                + "(select hoyi_transfer.remit_money,hoyi_transfer.trade_money,hoyi_transfer.shop_id,hoyi_transfer.shop_code,hoyi_transfer.shop_name,hoyi_transfer.in_account,hoyi_transfer.remit_in,shop.platform_id, shop.user_code, shop.square_type from "
+                + "hoyi_transfer" + ",hoyi_shop shop" + whereSql
+                + " and hoyi_transfer.shop_code=shop.code and shop.platform_id is null order by tran_date desc) a group by(shop_code)"
+                + "union "
+                + "select sum(remit_money), sum(trade_money),shop_id, shop_code, shop_name, in_account, remit_in, 'Y' as is_platform, user_code, square_type from "
+                + "(select hoyi_transfer.remit_money,hoyi_transfer.trade_money,shop.id as shop_id,shop.code as shop_code,shop.name as shop_name,shop.account_no as in_account,shop.account_name as remit_in, shop.user_code, shop.square_type from "
+                + "hoyi_transfer" + ",hoyi_shop,hoyi_shop shop" + whereSql
+                + " and hoyi_transfer.shop_code=hoyi_shop.code and hoyi_shop.platform_id =shop.id and shop.shop_type='03' order by tran_date desc) a group by(shop_code)";
+        System.out.println(whereSql);
+        System.out.println(sql);
+    }
+
+
 }
