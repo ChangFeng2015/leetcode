@@ -6,12 +6,17 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * 月份加减类
+ *
+ * author: dave
+ */
 public class CalenderTest {
 
 
     @Test
     public void test() {
-        String date = "2017-08";
+        String date = getMonth();
         System.out.println(firstDay(date));
         System.out.println(lastDay(date));
         System.out.println(addMonth(date, 2));
@@ -53,11 +58,16 @@ public class CalenderTest {
         return calendar.getTime();
     }
 
-    public static String addMonth(String month, Integer amount) {
+    public static String addMonth(final String month, final Integer amount) {
         Date date = firstDay(month);
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.MONTH, amount);
+        return Integer.toString(calendar.get(Calendar.YEAR)) + "-" + (calendar.get(Calendar.MONTH) + 1);
+    }
+
+    public static String getMonth() {
+        Calendar calendar = Calendar.getInstance();
         return Integer.toString(calendar.get(Calendar.YEAR)) + "-" + (calendar.get(Calendar.MONTH) + 1);
     }
 }
