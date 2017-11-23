@@ -1,10 +1,11 @@
 package leetcode;
 
+import com.google.common.base.Optional;
+import leetcode.langcommon.Student;
+import leetcode.langcommon.Students;
 import org.junit.Test;
 
-import java.lang.reflect.Type;
 import java.util.*;
-import com.google.common.base.Optional;
 
 /**
  * Created by Dave on 2016/11/13.
@@ -152,5 +153,16 @@ public class Demo<T> {
         System.out.println(sql);
     }
 
+    @Test
+    public void iterableTest() {
+        Students students = new Students(10);
+        for (int i = 0; i < 10; i ++) {
+            students.add(new Student(Integer.toString(i), Integer.toString(i)));
+        }
+
+        for (Student student : students) {
+            System.out.println(student.getId() + ":" + student.getName());
+        }
+    }
 
 }
