@@ -1,4 +1,4 @@
-package leetcode.factory;
+package leetcode.designPattern.factory;
 
 /**
  * @Author:Dave
