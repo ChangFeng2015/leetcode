@@ -1,6 +1,7 @@
 package leetcode;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.Maps;
 import leetcode.langcommon.Student;
 import leetcode.langcommon.Students;
 import org.junit.Test;
@@ -162,6 +163,29 @@ public class Demo<T> {
 
         for (Student student : students) {
             System.out.println(student.getId() + ":" + student.getName());
+        }
+    }
+
+    @Test
+    public void mapTraversal() {
+        Map<String, Object> oldMap = new HashMap<>(4);
+        oldMap.put("1", "abc");
+        oldMap.put("2", "efg");
+        oldMap.put("3", "hij");
+        oldMap.put("4", "lmn");
+
+        Iterator<Map.Entry<String, Object>> iterator = oldMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Object> entry = iterator.next();
+            System.out.println("key : " + entry.getKey() + "and value : " + entry.getValue());
+        }
+
+        for (Map.Entry<String, Object> entry : oldMap.entrySet()) {
+            System.out.println("key : " + entry.getKey() + " and value : " + entry.getValue());
+        }
+
+        for (String key : oldMap.keySet()) {
+            System.out.println("key : " + key + " and value : " + oldMap.get(key));
         }
     }
 
