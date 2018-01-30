@@ -18,6 +18,10 @@ public class Test {
             startIndex = ((--page) > 0) ? page * PAGE_SIZE : Integer.valueOf(0);
             System.out.println(startIndex + " -- -- " + PAGE_SIZE * (page + 1));
         }
+
+        int threadPoolSize = Runtime.getRuntime().availableProcessors() * 2;
+        long freeMemory = Runtime.getRuntime().freeMemory();
+        System.out.println(threadPoolSize);
     }
 
 }
