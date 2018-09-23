@@ -32,5 +32,6 @@ public class Demo1 {
         XStream xstream = new XStream();
         String s = xstream.toXML(proList);
         System.out.println(s);
+
     }
 }
