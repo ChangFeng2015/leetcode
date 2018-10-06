@@ -1,5 +1,10 @@
 package leetCode.designPattern.factory;
 
+import leetCode.designPattern.factory.framework.Factory;
+import leetCode.designPattern.factory.framework.Product;
+import leetCode.designPattern.factory.idcard.IDCardFactory;
+import org.junit.Test;
+
 /**
  * @Author:Dave
  * @Description:
@@ -26,4 +31,15 @@ public class FactoryTest {
         consumerService(carFactory);
     }
 
+    @Test
+    public void idCardTest() {
+        Factory factory = new IDCardFactory();
+        Product p1 = factory.create("小明");
+        Product p2 = factory.create("小刚");
+        Product p3 = factory.create("小憨狗");
+        p1.use();
+        p2.use();
+        p3.use();
+        System.out.println(((IDCardFactory) factory).getOwners());
+    }
 }
