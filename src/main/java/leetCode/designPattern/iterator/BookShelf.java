@@ -1,39 +1,29 @@
 package leetCode.designPattern.iterator;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-/**
- * @ClassName BookShelf
- * @Description TODO
- * @Author Dave
- * @Date 2018/9/23 11:53
- * @Version 1.0
- **/
-public class BookShelf {
+public class BookShelf implements Aggregate {
 
-    private ArrayList<Book> books;
-    private int index;
+    LinkedList<Book> books;
 
     public BookShelf() {
-        this.books = new ArrayList<Book>(10);
+        books = new LinkedList<>();
     }
 
-    public BookShelf(int minSize) {
-        this.books = new ArrayList<Book>(minSize);
+    boolean appeand(Book book) {
+        return books.add(book);
     }
 
-    public Book getBook(int index) {
-        return books.get(index);
-    }
-
-    public void appendBook(Book book) {
-        books.add(book);
-    }
-
-    public int getLength() {
+    int getLength() {
         return books.size();
     }
 
+    Book getBook(int index) {
+        return books.get(index);
+    }
+
+
+    @Override
     public Iterator iterator() {
         return new BookShelfIterator(this);
     }
