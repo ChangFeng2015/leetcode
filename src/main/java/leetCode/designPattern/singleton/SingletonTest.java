@@ -40,4 +40,11 @@ public class SingletonTest {
             return TicketMaker.INSTANCE.getNextTicketNumber();
         }
     }
+
+    @Test
+    public void tripleTest() {
+        Triple tripleOne = Triple.getInstance(1);
+        Triple tripleTwo = Triple.getInstance(2);
+        Triple tripleThree = Triple.getInstance(3);
+    }
 }
